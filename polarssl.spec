@@ -12,6 +12,7 @@ URL:		http://polarssl.org
 Source0:	http://polarssl.org/code/releases/%{name}-%{version}-gpl.tgz
 BuildRequires:	cmake
 BuildRequires:	doxygen
+BuildRequires:	pkcs11-helper-devel
 
 %description
 PolarSSL is an SSL library written in ANSI C. PolarSSL makes it easy
