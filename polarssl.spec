@@ -1,10 +1,10 @@
-%define major		1
+%define major		2
 %define libname		%mklibname %{name} %{major}
 %define develname	%mklibname %{name} -d
 
 Name:		polarssl
 Summary:	An SSL library
-Version:	1.1.4
+Version:	1.2.1
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
@@ -72,8 +72,16 @@ done
 
 %files -n %{libname}
 %{_libdir}/libpolarssl.so.%{major}*
+%{_libdir}/libpolarssl.so.%{version}
 
 %files -n %{develname}
 %doc apidoc
 %{_libdir}/libpolarssl.so
 %{_includedir}/polarssl
+
+
+%changelog
+* Mon Sep 17 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 1.1.4-1
++ Revision: 817036
+- imported package polarssl
+
