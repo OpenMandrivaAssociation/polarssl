@@ -5,11 +5,12 @@
 Summary:	An SSL library
 Name:		polarssl
 Version:	1.2.8
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://polarssl.org
 Source0:	http://polarssl.org/code/releases/%{name}-%{version}-gpl.tgz
+Patch0:		polarssl-1.2.8-havege.patch
 BuildRequires:	cmake
 BuildRequires:	doxygen
 BuildRequires:	pkcs11-helper-devel
@@ -69,6 +70,7 @@ This package contains development files.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %cmake \
