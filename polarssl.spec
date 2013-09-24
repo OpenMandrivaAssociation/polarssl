@@ -1,14 +1,14 @@
 %define major		2
 %define libname		%mklibname %{name} %{major}
-%define develname	%mklibname %{name} -d
+%define devname		%mklibname %{name} -d
 
-Name:		polarssl
 Summary:	An SSL library
-Version:	1.2.1
+Name:		polarssl
+Version:	1.2.8
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
-URL:		http://polarssl.org
+Url:		http://polarssl.org
 Source0:	http://polarssl.org/code/releases/%{name}-%{version}-gpl.tgz
 BuildRequires:	cmake
 BuildRequires:	doxygen
@@ -22,6 +22,12 @@ readable, documented, tested, loosely coupled and portable.
 
 This package contains PolarSSL programs.
 
+%files
+%doc ChangeLog README
+%{_bindir}/*
+
+#----------------------------------------------------------------------------
+
 %package -n %{libname}
 Summary:	PolarSSL library
 Group:		System/Libraries
@@ -34,19 +40,32 @@ readable, documented, tested, loosely coupled and portable.
 
 This package contains the library itself.
 
-%package -n %{develname}
+%files -n %{libname}
+%{_libdir}/libpolarssl.so.%{major}*
+%{_libdir}/libpolarssl.so.%{version}
+
+#----------------------------------------------------------------------------
+
+%package -n %{devname}
 Summary:	PolarSSL development files
 Group:		Development/C
-Requires:	%{libname} = %{version}
-Provides:	polarssl-devel
+Requires:	%{libname} = %{EVRD}
+Provides:	polarssl-devel = %{EVRD}
 
-%description -n %{develname}
+%description -n %{devname}
 PolarSSL is an SSL library written in ANSI C. PolarSSL makes it easy
 for developers to include cryptographic and SSL/TLS capabilities in their
 (embedded) products with as little hassle as possible. It is designed to be
 readable, documented, tested, loosely coupled and portable.
 
 This package contains development files.
+
+%files -n %{devname}
+%doc apidoc
+%{_libdir}/libpolarssl.so
+%{_includedir}/polarssl
+
+#----------------------------------------------------------------------------
 
 %prep
 %setup -q
@@ -63,25 +82,6 @@ This package contains development files.
 
 for file in benchmark md5sum sha1sum
 do
-    mv %{buildroot}%{_bindir}/${file} %{buildroot}%{_bindir}/${file}.polarssl
+	mv %{buildroot}%{_bindir}/${file} %{buildroot}%{_bindir}/${file}.polarssl
 done
-
-%files
-%doc ChangeLog README
-%{_bindir}/*
-
-%files -n %{libname}
-%{_libdir}/libpolarssl.so.%{major}*
-%{_libdir}/libpolarssl.so.%{version}
-
-%files -n %{develname}
-%doc apidoc
-%{_libdir}/libpolarssl.so
-%{_includedir}/polarssl
-
-
-%changelog
-* Mon Sep 17 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 1.1.4-1
-+ Revision: 817036
-- imported package polarssl
 
