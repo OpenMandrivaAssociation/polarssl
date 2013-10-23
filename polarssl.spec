@@ -1,6 +1,6 @@
-%define major		2
-%define libname		%mklibname %{name} %{major}
-%define devname		%mklibname %{name} -d
+%define major	2
+%define libname	%mklibname %{name} %{major}
+%define devname	%mklibname %{name} -d
 
 Summary:	An SSL library
 Name:		polarssl
@@ -13,7 +13,7 @@ Source0:	http://polarssl.org/code/releases/%{name}-%{version}-gpl.tgz
 Patch0:		polarssl-1.2.8-havege.patch
 BuildRequires:	cmake
 BuildRequires:	doxygen
-BuildRequires:	pkcs11-helper-devel
+BuildRequires:	pkgconfig(libpkcs11-helper-1)
 
 %description
 PolarSSL is an SSL library written in ANSI C. PolarSSL makes it easy
