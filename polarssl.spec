@@ -11,7 +11,6 @@ License:	GPLv2+
 Group:		System/Libraries
 Url:		http://polarssl.org
 Source0:	http://polarssl.org/code/releases/%{name}-%{version}-gpl.tgz
-Patch0:		polarssl-1.3.4-zlib.patch
 Patch1:		polarssl-1.3.4-static.patch
 Patch2:		polarssl-1.3.4-cflags.patch
 BuildRequires:	cmake
