@@ -6,7 +6,7 @@
 Summary:	An SSL library
 Name:		polarssl
 Version:	1.3.4
-Release:	1
+Release:	3
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://polarssl.org
@@ -15,6 +15,7 @@ Patch1:		polarssl-1.3.4-static.patch
 Patch2:		polarssl-1.3.4-cflags.patch
 BuildRequires:	cmake
 BuildRequires:	doxygen
+BuildRequires:	graphviz
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	pkgconfig(libpkcs11-helper-1)
 
