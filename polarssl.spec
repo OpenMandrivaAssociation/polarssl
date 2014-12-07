@@ -6,7 +6,7 @@
 Summary:	An SSL library
 Name:		polarssl
 Version:	1.3.4
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://polarssl.org
