@@ -5,12 +5,12 @@
 
 Summary:	An SSL library
 Name:		polarssl
-Version:	1.3.4
-Release:	4
+Version:	1.3.9
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://polarssl.org
-Source0:	http://polarssl.org/code/releases/%{name}-%{version}-gpl.tgz
+Source0:	http://polarssl.org/code/releases/polarssl-1.3.9-gpl.tgz
 Patch1:		polarssl-1.3.4-static.patch
 Patch2:		polarssl-1.3.4-cflags.patch
 BuildRequires:	cmake
