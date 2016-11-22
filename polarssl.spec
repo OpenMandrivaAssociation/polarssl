@@ -1,7 +1,6 @@
 %define major	7
 %define libname	%mklibname %{name} %{major}
 %define devname	%mklibname %{name} -d
-%define static	%mklibname %{name} -s
 
 Summary:	An SSL library
 Name:		polarssl
@@ -71,26 +70,6 @@ This package contains development files.
 %{_includedir}/%{name}
 %{_libdir}/lib%{name}.so
 %doc apidoc
-%doc LICENSE
-
-#----------------------------------------------------------------------------
-
-%package -n %{static}
-Summary:	PolarSSL development files
-Group:		Development/C
-Requires:	%{devname} = %{EVRD}
-Provides:	polarssl-static-devel = %{EVRD}
-
-%description -n %{static}
-PolarSSL is an SSL library written in ANSI C. PolarSSL makes it easy
-for developers to include cryptographic and SSL/TLS capabilities in their
-(embedded) products with as little hassle as possible. It is designed to be
-readable, documented, tested, loosely coupled and portable.
-
-This package contains development files.
-
-%files -n %{static}
-%{_libdir}/lib%{name}.a
 %doc LICENSE
 
 #----------------------------------------------------------------------------
